@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BASU ENGINEER | Building Design & Engineering</title>
+  <meta name="description" content="BASU ENGINEER - Professional Building Design, Planning, Structural Design and 3D Visualization Services.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #0b1f33;
+      --secondary: #f5a623;
+      --light: #f5f7fa;
+      --dark: #111827;
+      --white: #ffffff;
+      --gray: #64748b;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(11, 31, 51, 0.97);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 75px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(4,18,31,0.78), rgba(4,18,31,0.82)),
+        url("images/building.jpg") center/cover no-repeat;
+      padding: 120px 20px 70px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      color: white;
+    }
+
+    .hero-content small {
+      color: var(--secondary);
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.05;
+      margin: 15px 0;
+      max-width: 800px;
+    }
+
+    .hero h1 span {
+      color: var(--secondary);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #e2e8f0;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: #ffc45c;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* COMMON */
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: var(--secondary);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--primary);
+      margin: 8px 0;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--gray);
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+        url("images/about.jpg") center/cover;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .about-text h3 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+
+    .features {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .features li {
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: var(--secondary);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      padding: 35px 25px;
+      border-radius: 10px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-color: var(--secondary);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: #fff4df;
+      font-size: 32px;
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin: 18px 0 10px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: var(--light);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .project-image {
+      height: 230px;
+      background-position: center;
+      background-size: cover;
+      transition: 0.4s;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-card:nth-child(1) .project-image {
+      background-image: url("images/project1.jpg");
+    }
+
+    .project-card:nth-child(2) .project-image {
+      background-image: url("images/project2.jpg");
+    }
+
+    .project-card:nth-child(3) .project-image {
+      background-image: url("images/project3.jpg");
+    }
+
+    .project-info {
+      padding: 20px;
+    }
+
+    .project-info h3 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .project-info p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .why-card {
+      padding: 25px 15px;
+    }
+
+    .why-card strong {
+      display: block;
+      font-size: 35px;
+      color: var(--secondary);
+    }
+
+    .why-card h3 {
+      color: var(--primary);
+      margin: 5px 0;
+    }
+
+    .why-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact .section-title h2 {
+      color: white;
+    }
+
+    .contact .section-title p {
+      color: #cbd5e1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      padding: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .contact-item .icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--secondary);
+      color: #111;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .contact-item h4 {
+      margin-bottom: 3px;
+    }
+
+    .contact-item p {
+      color: #cbd5e1;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--secondary);
+    }
+
+    .contact-form textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #061522;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 29px;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+
+      .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+        flex-direction: column;
+        gap: 0;
+        display: none;
+        padding-bottom: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 15px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        height: 65px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding-top: 110px;
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 65px 15px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .services-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-image {
+        min-height: 280px;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+
+      <a href="#home" class="logo">
+        BASU <span>ENGINEER</span>
+      </a>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <small>BUILDING DESIGN & ENGINEERING</small>
+
+      <h1>
+        We Design Your
+        <span>Dream Building</span>
+      </h1>
+
+      <p>
+        Professional building planning, architectural design,
+        structural solutions and 3D visualization for residential
+        and commercial projects.
+      </p>
+
+      <a href="#services" class="btn btn-primary">
+        Our Services
+      </a>
+
+      <a href="#contact" class="btn btn-outline">
+        Contact Us
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>About Us</small>
+        <h2>About BASU ENGINEER</h2>
+        <p>
+          Professional engineering and building design services
+          focused on quality, safety and modern design.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+          <h3>Building Design With Precision</h3>
+
+          <p>
+            BASU ENGINEER provides professional building planning
+            and engineering solutions for residential, commercial
+            and other construction projects.
+          </p>
+
+          <p>
+            Our aim is to create practical, beautiful and safe
+            building designs according to the client's requirements.
+          </p>
+
+          <ul class="features">
+            <li>Professional Building Planning</li>
+            <li>Modern Architectural Design</li>
+            <li>Structural Design Solutions</li>
+            <li>2D & 3D Building Design</li>
+            <li>Client-Focused Service</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Our Services</small>
+        <h2>What We Do</h2>
+        <p>
+          Complete design and engineering solutions for your
+          construction project.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Building Plan</h3>
+          <p>
+            Professional residential and commercial building
+            planning according to your requirements.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📐</div>
+          <h3>2D Design</h3>
+          <p>
+            Detailed 2D floor plans and layouts for construction
+            and planning purposes.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>3D Design</h3>
+          <p>
+            Attractive 3D building visualization to understand
+            the final appearance of your project.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Structural Design</h3>
+          <p>
+            Engineering-focused structural planning for safe
+            and efficient construction.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧱</div>
+          <h3>Elevation Design</h3>
+          <p>
+            Modern front elevation designs that give your
+            building a unique appearance.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Project Consultation</h3>
+          <p>
+            Professional guidance and consultation for your
+            building project.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Our Work</small>
+        <h2>Recent Projects</h2>
+        <p>
+          A selection of building design and planning projects.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-info">
+            <h3>Modern Residence</h3>
+            <p>Residential Building Design</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-info">
+            <h3>Family House</h3>
+            <p>2D & 3D Building Planning</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-info">
+            <h3>Commercial Building</h3>
+            <p>Commercial Building Design</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY US -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Why Choose Us</small>
+        <h2>Why BASU ENGINEER?</h2>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <strong>01</strong>
+          <h3>Professional</h3>
+          <p>Professional design approach.</p>
+        </div>
+
+        <div class="why-card">
+          <strong>02</strong>
+          <h3>Quality</h3>
+          <p>Focus on quality and accuracy.</p>
+        </div>
+
+        <div class="why-card">
+          <strong>03</strong>
+          <h3>Modern</h3>
+          <p>Modern and practical designs.</p>
+        </div>
+
+        <div class="why-card">
+          <strong>04</strong>
+          <h3>Support</h3>
+          <p>Friendly client consultation.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Get In Touch</small>
+        <h2>Contact BASU ENGINEER</h2>
+        <p>
+          Have a building project in mind? Contact us today.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+
+          <div class="contact-item">
+
+            <div class="icon">📞</div>
+
+            <div>
+              <h4>Phone</h4>
+              <p>+91 XXXXX XXXXX</p>
+            </div>
+
+          </div>
+
+          <div class="contact-item">
+
+            <div class="icon">💬</div>
+
+            <div>
+              <h4>WhatsApp</h4>
+              <p>+91 XXXXX XXXXX</p>
+            </div>
+
+          </div>
+
+          <div class="contact-item">
+
+            <div class="icon">📧</div>
+
+            <div>
+              <h4>Email</h4>
+              <p>info@basuengineer.com</p>
+            </div>
+
+          </div>
+
+          <div class="contact-item">
+
+            <div class="icon">📍</div>
+
+            <div>
+              <h4>Office</h4>
+              <p>Your Office Address Here</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <form class="contact-form" onsubmit="sendMessage(event)">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+          >
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required
+          >
+
+          <select id="service" required>
+            <option value="">Select Service</option>
+            <option>Building Plan</option>
+            <option>2D Design</option>
+            <option>3D Design</option>
+            <option>Structural Design</option>
+            <option>Elevation Design</option>
+            <option>Project Consultation</option>
+          </select>
+
+          <textarea
+            id="message"
+            placeholder="Tell us about your project..."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary">
+            Send Enquiry
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      <strong>BASU ENGINEER</strong>.
+      All Rights Reserved.
+    </p>
+
+    <p>
+      Building Design • Engineering • Planning
+    </p>
+
+  </footer>
+
+
+  <!-- WHATSAPP BUTTON -->
+  <!-- এখানে 91XXXXXXXXXX-এর জায়গায় আসল WhatsApp নম্বর দিন -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/91XXXXXXXXXX"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+  >
+    ☎
+  </a>
+
+
+  <script>
+
+    // Mobile Menu
+    function toggleMenu() {
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+    }
+
+    function closeMenu() {
+      document
+        .getElementById("navLinks")
+        .classList.remove("active");
+    }
+
+
+    // Current Year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // WhatsApp Enquiry
+    function sendMessage(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value;
+
+      const phone =
+        document.getElementById("phone").value;
+
+      const service =
+        document.getElementById("service").value;
+
+      const message =
+        document.getElementById("message").value;
+
+
+      const whatsappNumber = "91XXXXXXXXXX";
+
+      const text =
+        "Hello BASU ENGINEER,%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Service: " + service + "%0A" +
+        "Project Details: " + message;
+
+
+      window.open(
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        text,
+        "_blank"
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
